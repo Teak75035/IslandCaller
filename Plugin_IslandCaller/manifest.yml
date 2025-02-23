@@ -1,0 +1,10 @@
+id: Plugin.IslandCaller
+name: IslandCaller
+description: 一个基于Classisland插件的轻量级点名器
+entranceAssembly: "Plugin_IslandCaller.dll"
+url: https://github.com/HUSX100/IslandCaller
+author: HUSX100
+version: 1.0.0.0
+repoOwner: HUSX100
+repoName: IslandCaller
+assetsRoot: master/Plugin_IslandCaller
