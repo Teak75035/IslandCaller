@@ -64,6 +64,16 @@ public partial class IslandCallerSettingsPage : SettingsPageBase
             // 构建文件路径
             string filePath = System.IO.Path.Combine(currentDirectory, fileName);
 
+            // 检查文件是否存在
+            if (!System.IO.File.Exists(filePath))
+            {
+                // 文件不存在，则创建文件
+                using (FileStream fs = System.IO.File.Create(filePath))
+                {
+                    CommonDialog.ShowInfo("名单不存在，已创建新名单！");
+                }
+            }
+
             if (System.IO.File.Exists(filePath))
             {
                 // 打开文件
