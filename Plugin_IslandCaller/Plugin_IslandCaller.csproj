@@ -10,8 +10,8 @@
         <PlatformTarget>x64</PlatformTarget>
         <Company></Company>
         <Authors>HUSX100</Authors>
-        <BaseOutputPath>D:\Code\IslandCaller\x64</BaseOutputPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <BaseOutputPath>F:\IslandCaller\Code\x64</BaseOutputPath>
     </PropertyGroup>
 
     <ItemGroup>
