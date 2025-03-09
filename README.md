@@ -37,7 +37,7 @@ IslandCaller 是一个基于 ClassIsland 提醒服务的轻量级点名器，用
 
 ---
 
-如果你在使用过程中遇到任何问题，欢迎提交 [issue](https://github.com/HUSX100/IslandCaller/issues)。
+如果你在使用过程中遇到任何问题，欢迎提交 [Issue](https://github.com/HUSX100/IslandCaller/issues)。
 
 ---
 
