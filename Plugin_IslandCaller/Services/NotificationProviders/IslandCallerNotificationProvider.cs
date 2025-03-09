@@ -65,6 +65,7 @@ public class IslandCallerNotificationProvider : INotificationProvider, IHostedSe
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center
             },
+            MaskSpeechContent = output,
             MaskDuration = new TimeSpan(0, 0, 3),
             });
     }
