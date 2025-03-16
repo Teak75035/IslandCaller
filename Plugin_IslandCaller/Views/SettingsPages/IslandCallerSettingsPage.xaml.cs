@@ -11,7 +11,7 @@ namespace IslandCaller.Views.SettingsPages;
 /// <summary>
 /// IslandCallerSettingsPage.xaml 的交互逻辑
 /// </summary>
-[SettingsPageInfo("IslandCaller.IslandCallerSettingsPage", "IslandCaller设置页面", PackIconKind.AccountCheckOutline, PackIconKind.AccountCheck)]
+[SettingsPageInfo("IslandCaller.IslandCallerSettingsPage", "IslandCaller 设置页面", PackIconKind.AccountCheckOutline, PackIconKind.AccountCheck)]
 public partial class IslandCallerSettingsPage : SettingsPageBase
 {
     public Plugin Plugin { get; }
