@@ -40,8 +40,10 @@ string GetRandomStudent(const wchar_t* filenameW, int number)
     }
 
     // 随机抽取学生
-    srand(static_cast<unsigned int>(time(nullptr)));
-    int randomIndex = rand() % students.size();
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dist(0, students.size() - 1);
+    int randomIndex = dist(gen);
     return students[randomIndex];
 }
 

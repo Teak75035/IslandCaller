@@ -12,15 +12,20 @@
         ResizeMode="NoResize"
         Background="Transparent"
         Topmost="True"
-        Title="Hover" Height="50" Width="100">
+        Title="Hover" Height="50" Width="100"
+        Left="1400" Top="700"
+        Style="{StaticResource MaterialDesignWindow}">
     <Grid>
-        <materialDesign:Card Padding="5,0,0,0">
+        <materialDesign:Card 
+            Padding="5,0,0,0" 
+            Opacity="0.75"
+            Background="{DynamicResource MaterialDesignCardBackground}">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Height="30" Width="30"
                                              MouseLeftButtonDown="Hover_OnMouseLeftButtonDown"
                                              HorizontalAlignment="Center"
                                              VerticalAlignment="Center"
-                                             Foreground="Gray"
+                                             Foreground="{DynamicResource MaterialDesignBody}"
                                              Background="{DynamicResource MaterialDesignCardBackground}"
                                              Kind="Menu"/>
                 <Button VerticalAlignment="Center"
@@ -30,10 +35,10 @@
                         BorderBrush="Transparent"
                         Background="Transparent">
                     <materialDesign:PackIcon Width="40" Height="40"
-                                             Foreground="White"
+                                             Foreground="{DynamicResource MaterialDesignBody}"
                                              HorizontalAlignment="Center"
                                              VerticalAlignment="Center"
-                                             Kind="PeopleCheck" />
+                                             Kind="PeopleCheck"/>
                 </Button>
             </StackPanel>
         </materialDesign:Card>
