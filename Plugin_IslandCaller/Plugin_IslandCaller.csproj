@@ -11,7 +11,7 @@
         <Company></Company>
         <Authors>HUSX100</Authors>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <BaseOutputPath>F:\IslandCaller\IslandCaller\x64</BaseOutputPath>
+        <BaseOutputPath>..\x64</BaseOutputPath>
     </PropertyGroup>
 
     <ItemGroup>

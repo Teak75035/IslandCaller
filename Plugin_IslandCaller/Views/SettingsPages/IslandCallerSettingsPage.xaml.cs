@@ -6,6 +6,8 @@ using System.IO;
 using IWshRuntimeLibrary;
 using ClassIsland.Core.Controls.CommonDialog;
 using System.Diagnostics;
+using Plugin_IslandCaller.Views.Windows;
+using System.Windows.Controls;
 namespace IslandCaller.Views.SettingsPages;
 
 /// <summary>
@@ -21,6 +23,10 @@ public partial class IslandCallerSettingsPage : SettingsPageBase
         Plugin = plugin;
         InitializeComponent();
         DataContext = this;
+        if (System.IO.File.Exists(System.IO.Path.Combine(Hover.ConfigFolder!, "enableHover.flag")))
+        {
+            CheckBoxEnableHover.IsChecked = true;
+        }
     }
 
     private void ButtonCreateLnk_OnClick(object sender, RoutedEventArgs e)
@@ -84,6 +90,37 @@ public partial class IslandCallerSettingsPage : SettingsPageBase
         catch (System.Exception ex)
         {
             CommonDialog.ShowError($"无法打开名单：{ex.Message}");
+        }
+    }
+
+    private void CheckBox_Checked(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            string filePath = System.IO.Path.Combine(Hover.ConfigFolder!, "enableHover.flag");
+            using (FileStream fs = System.IO.File.Create(filePath))
+            {
+                Hover.Instance ??= new Hover();
+                Hover.Instance.Show();
+            }
+        }
+        catch (System.Exception ex)
+        {
+            CommonDialog.ShowError($"无法启用悬浮窗：{ex.Message}");
+        }
+    }
+
+    private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            string filePath = System.IO.Path.Combine(Hover.ConfigFolder!, "enableHover.flag");
+            System.IO.File.Delete(filePath);
+            Hover.Instance?.Hide();
+        }
+        catch (System.Exception ex)
+        {
+            CommonDialog.ShowError($"无法禁用悬浮窗：{ex.Message}");
         }
     }
 }

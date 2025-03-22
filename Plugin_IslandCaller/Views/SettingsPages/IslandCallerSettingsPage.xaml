@@ -41,6 +41,9 @@
                                 Margin="4 0 0 0">
                                 <ci:IconText Kind="FileEdit" Text="修改名单" />
                             </Button>
+                            <CheckBox x:Name="CheckBoxEnableHover" Margin="4 0 0 0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                                <ci:IconText Kind="Window" Text="启用悬浮窗" />
+                            </CheckBox>
                         </WrapPanel>
                     </StackPanel>
                 </Expander>
