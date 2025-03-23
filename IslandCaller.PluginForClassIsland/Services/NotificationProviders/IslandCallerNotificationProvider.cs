@@ -40,7 +40,7 @@ public class IslandCallerNotificationProvider : INotificationProvider, IHostedSe
         UriNavigationService.HandlePluginsNavigation(
             "IslandCaller/Run",
             args => {
-                UriOn(null, EventArgs.Empty);
+                RandomCall();
             }
         );
     }
@@ -48,7 +48,7 @@ public class IslandCallerNotificationProvider : INotificationProvider, IHostedSe
     [DllImport(".\\Plugins\\Plugin.IslandCaller\\Core.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
     public static extern IntPtr GetRandomStudentName();
 
-    private void UriOn(object? sender, EventArgs e)
+    public void RandomCall()
     {
         int num = 1;
         string filename = @".\Config\Plugins\Plugin.IslandCaller\default.txt";
@@ -67,9 +67,8 @@ public class IslandCallerNotificationProvider : INotificationProvider, IHostedSe
             },
             MaskSpeechContent = output,
             MaskDuration = new TimeSpan(0, 0, 3),
-            });
+        });
     }
-
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {

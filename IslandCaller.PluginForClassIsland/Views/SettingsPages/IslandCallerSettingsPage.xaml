@@ -41,7 +41,28 @@
                                 Margin="4 0 0 0">
                                 <ci:IconText Kind="FileEdit" Text="修改名单" />
                             </Button>
-                            <CheckBox x:Name="CheckBoxEnableHover" Margin="4 0 0 0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                        </WrapPanel>
+                    </StackPanel>
+                </Expander>
+            </materialDesign:Card>
+            <materialDesign:Card Margin="0 0 0 6">
+                <Expander Background="Transparent"
+                IsExpanded="True"
+                TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                    <Expander.Header>
+                        <ci:SettingsControl IconGlyph="AccountCheck"
+                                  Foreground="{DynamicResource MaterialDesignBody}"
+                                  Header="IslandCaller 悬浮窗管理"
+                                  Description="用于对 IslandCaller 进行管理"
+                                  HasSwitcher="False"
+                                  Margin="-12 0" />
+                    </Expander.Header>
+                    <StackPanel Margin="36 0 48 12">
+                        <WrapPanel>
+                            <CheckBox 
+                                x:Name="CheckBoxEnableHover" 
+                                Margin="4 0 0 0" 
+                                IsChecked="{Binding Plugin.Settings.IsHoverShow}">
                                 <ci:IconText Kind="Window" Text="启用悬浮窗" />
                             </CheckBox>
                         </WrapPanel>

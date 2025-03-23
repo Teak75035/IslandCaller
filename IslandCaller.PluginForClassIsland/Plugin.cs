@@ -8,21 +8,30 @@ using ClassIsland.Core.Extensions.Registry;
 using IslandCaller.Views.SettingsPages;
 using IslandCaller.Views.Windows;
 using System.IO;
+using IslandCaller.Models;
+using ClassIsland.Shared.Helpers;
 
 namespace IslandCaller;
 
 [PluginEntrance]
 public class Plugin : PluginBase
 {
+    public Settings Settings { get; set; } = new();
     public override void Initialize(HostBuilderContext context, IServiceCollection services)
     {
         services.AddHostedService<IslandCallerNotificationProvider>();
         services.AddSettingsPage<IslandCallerSettingsPage>();
-        Hover.ConfigFolder = PluginConfigFolder;
-        AppBase.Current.AppStarted += (_,_) => {
-            if (File.Exists(Path.Combine(PluginConfigFolder,"enableHover.flag")))
+        Settings = ConfigureFileHelper.LoadConfig<Settings>(Path.Combine(PluginConfigFolder, "Settings.json"));
+        Settings.PropertyChanged += (sender, args) =>
+        {
+            ConfigureFileHelper.SaveConfig<Settings>(Path.Combine(PluginConfigFolder, "Settings.json"), Settings);
+        };
+
+        AppBase.Current.AppStarted += (_, _) =>
+        {
+            if (Settings.IsHoverShow)
             {
-                Hover.Instance ??= new Hover();
+                Hover.Instance ??= new Hover(this);
                 Hover.Instance.Show();
             }
         };
