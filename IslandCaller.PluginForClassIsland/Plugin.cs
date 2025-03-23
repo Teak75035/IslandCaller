@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using IslandCaller.Services.NotificationProviders;
 using ClassIsland.Core.Extensions.Registry;
 using IslandCaller.Views.SettingsPages;
-using Plugin_IslandCaller.Views.Windows;
+using IslandCaller.Views.Windows;
 using System.IO;
 
 namespace IslandCaller;

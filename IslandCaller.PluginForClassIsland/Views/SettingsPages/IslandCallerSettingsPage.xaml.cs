@@ -6,8 +6,7 @@ using System.IO;
 using IWshRuntimeLibrary;
 using ClassIsland.Core.Controls.CommonDialog;
 using System.Diagnostics;
-using Plugin_IslandCaller.Views.Windows;
-using System.Windows.Controls;
+using IslandCaller.Views.Windows;
 namespace IslandCaller.Views.SettingsPages;
 
 /// <summary>

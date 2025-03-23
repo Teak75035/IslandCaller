@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 
-namespace Plugin_IslandCaller.Views.Windows;
+namespace IslandCaller.Views.Windows;
 
 public partial class Hover : Window
 {
