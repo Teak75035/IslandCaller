@@ -9,4 +9,4 @@ apiVersion: 1.6.0
 icon: Icon.ico
 repoOwner: HUSX100
 repoName: IslandCaller
-assetsRoot: master/Plugin_IslandCaller
+assetsRoot: master/IslandCaller.PluginForClassIsland/
