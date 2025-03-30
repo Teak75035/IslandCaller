@@ -15,7 +15,7 @@
         Background="Transparent"
         Topmost="True"
         Title="Hover" Height="50" Width="100"
-        Left="1400" Top="700"
+        Left="500" Top="300"
         Style="{StaticResource MaterialDesignWindow}">
     <Grid>
         <materialDesign:Card 
