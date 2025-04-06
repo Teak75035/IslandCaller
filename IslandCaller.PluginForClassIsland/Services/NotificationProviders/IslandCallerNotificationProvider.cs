@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using ClassIsland.Core.Abstractions.Services;
+using ClassIsland.Shared.Enums;
 using ClassIsland.Shared.Interfaces;
 using ClassIsland.Shared.Models.Notification;
 using MaterialDesignThemes.Wpf;
@@ -16,30 +17,34 @@ public class IslandCallerNotificationProvider : INotificationProvider, IHostedSe
     public static event StudentNameEventHandler? OnStudentNameReceived;
 
     private INotificationHostService NotificationHostService { get; }
+    private ILessonsService LessonsService { get; }
     public IUriNavigationService UriNavigationService { get; }
     public string Name { get; set; } = "IslandCallerServices";
     public string Description { get; set; } = "用于为IslandCaller提供通知接口";
     public Guid ProviderGuid { get; set; } = new Guid("9B570BF1-9A32-40C0-9D5D-4FFA69E03A37");
     public object? SettingsElement { get; set; }
-    public object? IconElement { get; set; } =  new PackIcon()
+    public object? IconElement { get; set; } = new PackIcon()
     {
         Kind = PackIconKind.AccountCheck,
         Width = 24,
         Height = 24
     };
-    
+
     /// <summary>
     /// 这个属性用来存储提醒的设置。
     /// </summary>
 
-    public IslandCallerNotificationProvider(INotificationHostService notificationHostService, IUriNavigationService uriNavigationService)
+    public IslandCallerNotificationProvider(Plugin plugin, INotificationHostService notificationHostService, IUriNavigationService uriNavigationService, ILessonsService lessonsService)
     {
         NotificationHostService = notificationHostService;
+        LessonsService = lessonsService;
         UriNavigationService = uriNavigationService;
         NotificationHostService.RegisterNotificationProvider(this);
         UriNavigationService.HandlePluginsNavigation(
             "IslandCaller/Run",
-            args => {
+            args =>
+            {
+                if (plugin.Settings.IsBreakProofEnabled & LessonsService.CurrentState == TimeState.Breaking) return;
                 RandomCall();
             }
         );
