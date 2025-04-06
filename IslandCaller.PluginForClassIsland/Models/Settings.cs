@@ -17,4 +17,13 @@ public class Settings : ObservableRecipient
         }
     }
 
+    bool _isBreakProofEnabled;
+    public bool IsBreakProofEnabled {
+        get => _isBreakProofEnabled;
+        set {
+            if (value == _isBreakProofEnabled) return;
+            _isBreakProofEnabled = value;
+            OnPropertyChanged();
+        }
+    }
 }

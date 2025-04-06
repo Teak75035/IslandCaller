@@ -45,6 +45,10 @@
                     </StackPanel>
                 </Expander>
             </materialDesign:Card>
+            <ci:SettingsCard Header="下课禁用"
+                             Description="防止下课时误操作影响课堂秩序"
+                             IconGlyph="TimerLock"
+                             IsOn="{Binding Plugin.Settings.IsBreakProofEnabled, Mode=TwoWay}"/>
             <materialDesign:Card Margin="0 0 0 6">
                 <Expander Background="Transparent"
                 IsExpanded="True"
