@@ -19,43 +19,53 @@ public class Settings : ObservableRecipient
     }
 
     bool _isBreakProofEnabled;
-    public bool IsBreakProofEnabled {
+    public bool IsBreakProofEnabled
+    {
         get => _isBreakProofEnabled;
-        set {
+        set
+        {
             if (value == _isBreakProofEnabled) return;
             _isBreakProofEnabled = value;
             OnPropertyChanged();
         }
     }
 
-    HoverPositionData _hoverPosition = new HoverPositionData {
+    HoverPositionData _hoverPosition = new HoverPositionData
+    {
         X = 500,
         Y = 300
     };
-    public HoverPositionData HoverPosition {
+    public HoverPositionData HoverPosition
+    {
         get => _hoverPosition;
-        set {
+        set
+        {
             if (_hoverPosition.X.Equals(value.X) & _hoverPosition.Y.Equals(value.Y)) return;
             _hoverPosition = value;
             OnPropertyChanged();
         }
     }
-    
-    public class HoverPositionData : ObservableRecipient {
+
+    public class HoverPositionData : ObservableRecipient
+    {
         double _x;
-        public double X {
+        public double X
+        {
             get => _x;
-            set {
+            set
+            {
                 if (value.Equals(_x)) return;
                 _x = value;
                 OnPropertyChanged();
             }
         }
-        
+
         double _y;
-        public double Y {
+        public double Y
+        {
             get => _y;
-            set {
+            set
+            {
                 if (value.Equals(_y)) return;
                 _y = value;
                 OnPropertyChanged();

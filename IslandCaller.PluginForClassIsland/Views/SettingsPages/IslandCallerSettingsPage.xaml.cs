@@ -43,7 +43,7 @@ public partial class IslandCallerSettingsPage : SettingsPageBase
             string iconName = @"Plugins\Plugin.IslandCaller\Icon.ico";
             string currentDirectory = Directory.GetCurrentDirectory();
             // 构建文件路径
-            string iconPath = System.IO.Path.Combine(currentDirectory,iconName);
+            string iconPath = System.IO.Path.Combine(currentDirectory, iconName);
             shortcut.IconLocation = iconPath;
             // 保存快捷方式
             shortcut.Save();

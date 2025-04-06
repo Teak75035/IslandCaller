@@ -24,7 +24,7 @@
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Height="30" Width="30"
                                              MouseLeftButtonDown="Hover_OnMouseLeftButtonDown"
-                                             MouseLeave="Hover_OnMouseLeftButtonUp"
+                                             MouseLeave="Hover_OnMouseLeave"
                                              HorizontalAlignment="Center"
                                              VerticalAlignment="Center"
                                              Foreground="{DynamicResource MaterialDesignBody}"
