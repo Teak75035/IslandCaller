@@ -17,6 +17,11 @@ public partial class Hover : Window
     public Hover(Plugin plugin)
     {
         Plugin = plugin;
+        
+        // 这两个属性绑定不生效,于是直接在初始化前设定
+        this.Left = plugin.Settings.HoverPosition.X;
+        this.Top = plugin.Settings.HoverPosition.Y;
+        
         InitializeComponent();
         DataContext = this;
 
@@ -54,6 +59,13 @@ public partial class Hover : Window
         DragMove();
     }
 
+    void Hover_OnMouseLeftButtonUp(object sender,MouseEventArgs mouseEventArgs) {
+        Plugin.Settings.HoverPosition = new Settings.HoverPositionData {
+            X = this.Left,
+            Y = this.Top
+        };
+    }
+    
     void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
         RandomCall(null, EventArgs.Empty);
