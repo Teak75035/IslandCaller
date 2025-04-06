@@ -20,7 +20,7 @@
 
     <ScrollViewer>
         <StackPanel MaxWidth="750">
-            <materialDesign:Card Margin="0 0 0 6">
+            <materialDesign:Card Margin="0 6 0 6">
                 <Expander Background="Transparent"
                       IsExpanded="True"
                       TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
@@ -49,7 +49,7 @@
                              Description="防止下课时误操作影响课堂秩序"
                              IconGlyph="TimerLock"
                              IsOn="{Binding Plugin.Settings.IsBreakProofEnabled, Mode=TwoWay}"/>
-            <materialDesign:Card Margin="0 0 0 6">
+            <materialDesign:Card Margin="0 6 0 6">
                 <Expander Background="Transparent"
                 IsExpanded="True"
                 TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
@@ -62,14 +62,10 @@
                                   Margin="-12 0" />
                     </Expander.Header>
                     <StackPanel Margin="36 0 48 12">
-                        <WrapPanel>
-                            <CheckBox 
-                                x:Name="CheckBoxEnableHover" 
-                                Margin="4 0 0 0" 
-                                IsChecked="{Binding Plugin.Settings.IsHoverShow}">
-                                <ci:IconText Kind="Window" Text="启用悬浮窗" />
-                            </CheckBox>
-                        </WrapPanel>
+                        <ci:SettingsControl IconGlyph="Window"
+                                            Header="启用悬浮窗"
+                                            Description="展示一个悬浮窗,用于快速抽取"
+                                            IsOn="{Binding Plugin.Settings.IsHoverShow, Mode=TwoWay}"/>
                     </StackPanel>
                 </Expander>
             </materialDesign:Card>
